@@ -1,0 +1,20 @@
+scepplugin.so - A SCEP authorization plugin that implements the RSA Certificate
+Manager SCEP plugin interface and authorizes SCEP requests using passwords
+embedded in SCEP GetCert messages.
+
+Passwords are encrypted using bcrypt; the bcrypt libraries are ported from 
+the bcrypt implementation at http://bcrypt.sourceforge.net/
+
+The plugin supports RSA Certificate Manager 6.8, build 520.
+
+Password entries are stored in a passdata file that has the following format:
+
+---
+192.168.100.136
+$2a$12$XPIBTErUF1GdiS3syFIPReyDmhk5BCxBGIOGTh/3WrV6asL8OQaHm
+---
+
+The IP address acts as a username for the SCEP request; this is the source IP address
+of the packet that contains the SCEP request.
+
+See the RSA Certificate Manager documentation for instructions on setting up the plugin.
